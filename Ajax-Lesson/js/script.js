@@ -10,7 +10,11 @@ $(function() {
       $('#temp_min').text(data.main.temp_min);
       $('#humidity').text(data.main.humidity);
       $('#speed').text(data.wind.speed);
-      $('#weather').text(data.weather[0].main)
-    })
+      $('#weather').text(data.weather[0].main);
+      $('#img').attr('src', 'http://openweathermap.org/img/w/' + data.weather[0].icon + '.png')
+      $('#img').attr('alt', data.weather[0].main);
+    }).fail(function() {
+      alert('通信に失敗しました。');
+    });
   });
-});
+})
